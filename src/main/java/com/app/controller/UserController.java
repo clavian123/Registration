@@ -1,5 +1,6 @@
 package com.app.controller;
 
+import org.hibernate.mapping.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,7 +27,8 @@ public class UserController {
 	private UserValidator userValidator;
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	//bisa map/ doc public String registration(Model model) {
+	//bisa map/ doc public String registration(Model model)
+	public Map{
 		model.addAttribute("userForm", new User());
 		
 		return "registration";

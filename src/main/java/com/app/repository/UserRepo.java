@@ -1,10 +1,10 @@
-package com.app.service;
+package com.app.repository;
 
 import java.util.List;
 
 import com.app.model.User;
 
-public interface UserService {
+public interface UserRepo {
 	List<User> findAlluser();
 	User findById(User user);
 	User findByPan(String pan);

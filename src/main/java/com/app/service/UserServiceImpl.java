@@ -27,6 +27,18 @@ public class UserServiceImpl implements UserService {
 	public User findByUsername(String username) {
 		return userRepository.findByUserName(username);
 	}
+
+	@Override
+	public User findByPan(String pan) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User findByPin(String pin) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
