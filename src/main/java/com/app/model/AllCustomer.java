@@ -26,7 +26,7 @@ public class AllCustomer {
 	@Column(name="title")
 	private String title; 
 	
-	@Column(name"name");
+	@Column(name="name")
 	private String name;
 	
 	@Column(name="id_type")
