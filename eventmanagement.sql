@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2020 at 02:32 AM
+-- Generation Time: Feb 14, 2020 at 05:20 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -69,11 +69,58 @@ CREATE TABLE `customers` (
   `pin` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `customers`
+-- Table structure for table `dummy_customer`
 --
 
-INSERT INTO `customers` (`id`, `cif_code`, `title`, `name`, `id_type`, `id_number`, `id_expiry_date`, `gender`, `marital_status`, `address`, `rt_rw`, `kelurahan`, `kecamatan`, `city`, `postal_code`, `province`, `current_address`, `current_rt_rw`, `current_kelurahan`, `current_kecamatan`, `current_city`, `current_postal_code`, `current_province`, `mothers_maiden`, `birth_place`, `birth_date`, `occupation`, `monthly_income`, `email`, `mobile_number`, `nationality`, `status`, `created_date`, `created_by`, `last_updated_date`, `last_updated_by`, `pan`, `pin`) VALUES
+CREATE TABLE `dummy_customer` (
+  `id` bigint(20) NOT NULL,
+  `cif_code` varchar(10) NOT NULL,
+  `title` varchar(10) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `id_type` varchar(50) DEFAULT NULL,
+  `id_number` varchar(50) DEFAULT NULL,
+  `id_expiry_date` datetime DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `marital_status` varchar(10) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `rt_rw` varchar(10) DEFAULT NULL,
+  `kelurahan` varchar(50) DEFAULT NULL,
+  `kecamatan` varchar(50) DEFAULT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  `postal_code` varchar(10) DEFAULT NULL,
+  `province` varchar(50) DEFAULT NULL,
+  `current_address` varchar(255) DEFAULT NULL,
+  `current_rt_rw` varchar(10) DEFAULT NULL,
+  `current_kelurahan` varchar(50) DEFAULT NULL,
+  `current_kecamatan` varchar(50) DEFAULT NULL,
+  `current_city` varchar(50) DEFAULT NULL,
+  `current_postal_code` varchar(10) DEFAULT NULL,
+  `current_province` varchar(50) DEFAULT NULL,
+  `mothers_maiden` varchar(255) DEFAULT NULL,
+  `birth_place` varchar(50) DEFAULT NULL,
+  `birth_date` datetime DEFAULT NULL,
+  `occupation` varchar(255) DEFAULT NULL,
+  `monthly_income` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `mobile_number` varchar(50) NOT NULL,
+  `nationality` varchar(50) NOT NULL,
+  `status` bigint(20) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `created_by` varchar(50) NOT NULL,
+  `last_updated_date` datetime NOT NULL,
+  `last_updated_by` varchar(50) NOT NULL,
+  `pan` varchar(17) NOT NULL,
+  `pin` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dummy_customer`
+--
+
+INSERT INTO `dummy_customer` (`id`, `cif_code`, `title`, `name`, `id_type`, `id_number`, `id_expiry_date`, `gender`, `marital_status`, `address`, `rt_rw`, `kelurahan`, `kecamatan`, `city`, `postal_code`, `province`, `current_address`, `current_rt_rw`, `current_kelurahan`, `current_kecamatan`, `current_city`, `current_postal_code`, `current_province`, `mothers_maiden`, `birth_place`, `birth_date`, `occupation`, `monthly_income`, `email`, `mobile_number`, `nationality`, `status`, `created_date`, `created_by`, `last_updated_date`, `last_updated_by`, `pan`, `pin`) VALUES
 (1, '1234567890', 'Mr', 'Tantono Wijaya', 'KTP', '14700041098888', '2020-02-03 00:00:00', 'Male', 'Single', 'Jalan Anggrek nomor 11', '03/05', 'Kebon Jeruk', 'Sukabumi', 'Jakarta Barat', '11540', 'DKI Jakarta', 'Jalan Anggrek nomor 11', '03/05', 'Kebon Jeruk', 'Sukabumi', 'Jakarta Barat', '11540', 'DKI Jakarta', 'Yeni', 'Pekanbaru', '1990-07-08 00:00:00', 'Employee', '10000000', 'tantono_wijaya@mail.com', '0813757296840', 'WNI', 1, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '9886850443936032', '715649'),
 (3, '6385628673', 'Ms', 'Tri Utami', 'SIM', '940309160129', '2023-05-22 00:00:00', 'Female', 'Married', 'Jalan Yosowilangun', '01/03', 'Cempaka Putih', 'Cempaka Putih', 'Jakarta Pusat', '11111', 'DKI Jakarta', 'Jalan Yosowilangun', '01/03', 'Cempaka Putih', 'Cempaka Putih', 'Jakarta Pusat', '11111', 'DKI Jakarta', 'Nurlita', 'Surabaya', '1985-02-11 00:00:00', 'Wiraswasta', '60000000', 'nurlita@mail.com', '082648261495', 'WNI', 1, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '294618506437', '615396'),
 (4, '7154966305', 'Mr', 'Bayu Raharja', 'KTP', '8549936827953331', '2025-02-20 00:00:00', 'Male', 'Married', 'Jalan Asemrowo', '04/02', 'Asemrowo', 'Asemrowo', 'Surabaya', '72639', 'Jawa Timur', 'Jalan Kebon Kacang', '05/03', 'Kebon Kacang', 'Tanah Abang', 'Jakarta', '15589', 'DKI Jakarta', 'Fitrianti Indah', 'Surabaya', '1956-08-20 00:00:00', 'Wartawan', '5000000', 'bayu_rhj@mail.com', '0852602619563', 'WNI', 1, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '639366016375', '816491'),
@@ -98,6 +145,47 @@ INSERT INTO `customers` (`id`, `cif_code`, `title`, `name`, `id_type`, `id_numbe
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `event`
+--
+
+CREATE TABLE `event` (
+  `id` bigint(20) NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `event_start` datetime NOT NULL,
+  `event_end` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`id`, `code`, `name`, `description`, `event_start`, `event_end`) VALUES
+(2, 'registration', 'Registration', 'user yang registration diberi sebuah reward', '2020-02-14 00:00:00', '2020-02-29 00:00:00'),
+(3, 'valentine', 'Valentine', 'promo dalam rangka hari valentine', '2020-02-14 00:00:00', '2020-02-14 23:59:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event_reward`
+--
+
+CREATE TABLE `event_reward` (
+  `id_reward` bigint(20) NOT NULL,
+  `id_event` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `event_reward`
+--
+
+INSERT INTO `event_reward` (`id_reward`, `id_event`) VALUES
+(2, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lookup`
 --
 
@@ -109,6 +197,28 @@ CREATE TABLE `lookup` (
   `status` bigint(20) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reward`
+--
+
+CREATE TABLE `reward` (
+  `id` bigint(20) NOT NULL,
+  `reward_code` varchar(255) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `status` bigint(20) NOT NULL,
+  `voucher_code` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reward`
+--
+
+INSERT INTO `reward` (`id`, `reward_code`, `type`, `status`, `voucher_code`) VALUES
+(2, 'CASHBACK6500FEB', 'voucher', 1, 1),
+(3, 'CASHBACK4000REG', 'voucher', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -132,6 +242,78 @@ INSERT INTO `status` (`id`, `type`, `code`, `name`, `description`) VALUES
 (1, 'customer', 'active', 'Active', NULL),
 (3, 'customer', 'inactive', 'Inactive', NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `temp_regis`
+--
+
+CREATE TABLE `temp_regis` (
+  `id` bigint(20) NOT NULL,
+  `cif_code` varchar(10) NOT NULL,
+  `data_registration` blob NOT NULL,
+  `expired_date` date NOT NULL,
+  `created_date` date NOT NULL,
+  `token` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `customer` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_voucher`
+--
+
+CREATE TABLE `user_voucher` (
+  `id` bigint(20) NOT NULL,
+  `login_name` varchar(255) NOT NULL,
+  `voucher` bigint(20) NOT NULL,
+  `created_date` date NOT NULL,
+  `expiry_date` date NOT NULL,
+  `redeem_date` int(11) DEFAULT NULL,
+  `status` bigint(20) NOT NULL,
+  `redeem_counter` bigint(20) NOT NULL,
+  `cif_code` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `voucher`
+--
+
+CREATE TABLE `voucher` (
+  `id` bigint(20) NOT NULL,
+  `voucher_code` varchar(255) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `max_redeem` bigint(20) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `amount` bigint(20) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `voucher`
+--
+
+INSERT INTO `voucher` (`id`, `voucher_code`, `type`, `max_redeem`, `start_date`, `end_date`, `amount`, `description`, `status`) VALUES
+(1, 'CASHBACK6500FEB', 'fundTransfer', 5000, '2020-02-14', '2020-02-29', 5000, 'cashback berupa simas point sebanyak 6500 untuk customer yang transfer ke bank lain dalam negeri', 1),
+(2, 'CASHBACK4000REG', 'billPayment', 4000, '2020-02-14', '2020-02-29', 4000, 'cashback berupa simas point sebanyak 4000 apabila customer melakukan pembayaran bill menggunakan aplikasi simobi', 1);
+
 --
 -- Indexes for dumped tables
 --
@@ -142,8 +324,30 @@ INSERT INTO `status` (`id`, `type`, `code`, `name`, `description`) VALUES
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `unq_cifcode` (`cif_code`),
-  ADD UNIQUE KEY `unq_pan` (`pan`),
+  ADD UNIQUE KEY `unq_pan` (`pan`) USING BTREE,
   ADD KEY `fk_status` (`status`);
+
+--
+-- Indexes for table `dummy_customer`
+--
+ALTER TABLE `dummy_customer`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unq_cifcode` (`cif_code`),
+  ADD UNIQUE KEY `unq_pan` (`pan`) USING BTREE,
+  ADD KEY `fk_status` (`status`);
+
+--
+-- Indexes for table `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `event_reward`
+--
+ALTER TABLE `event_reward`
+  ADD KEY `fk_event` (`id_event`),
+  ADD KEY `fk_reward` (`id_reward`);
 
 --
 -- Indexes for table `lookup`
@@ -154,11 +358,44 @@ ALTER TABLE `lookup`
   ADD KEY `cari_status` (`status`);
 
 --
+-- Indexes for table `reward`
+--
+ALTER TABLE `reward`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_reward_status` (`status`),
+  ADD KEY `fk_voucher_code` (`voucher_code`);
+
+--
 -- Indexes for table `status`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `type` (`type`,`code`);
+
+--
+-- Indexes for table `temp_regis`
+--
+ALTER TABLE `temp_regis`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_voucher`
+--
+ALTER TABLE `user_voucher`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `voucher`
+--
+ALTER TABLE `voucher`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_voucher_status` (`status`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -171,10 +408,28 @@ ALTER TABLE `customers`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
+-- AUTO_INCREMENT for table `dummy_customer`
+--
+ALTER TABLE `dummy_customer`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `event`
+--
+ALTER TABLE `event`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `lookup`
 --
 ALTER TABLE `lookup`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `reward`
+--
+ALTER TABLE `reward`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `status`
@@ -183,20 +438,52 @@ ALTER TABLE `status`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `user_voucher`
+--
+ALTER TABLE `user_voucher`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `voucher`
+--
+ALTER TABLE `voucher`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `customers`
+-- Constraints for table `dummy_customer`
 --
-ALTER TABLE `customers`
+ALTER TABLE `dummy_customer`
   ADD CONSTRAINT `fk_status` FOREIGN KEY (`status`) REFERENCES `status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `event_reward`
+--
+ALTER TABLE `event_reward`
+  ADD CONSTRAINT `fk_event` FOREIGN KEY (`id_event`) REFERENCES `event` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_reward` FOREIGN KEY (`id_reward`) REFERENCES `reward` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `lookup`
 --
 ALTER TABLE `lookup`
   ADD CONSTRAINT `cari_status` FOREIGN KEY (`status`) REFERENCES `status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `reward`
+--
+ALTER TABLE `reward`
+  ADD CONSTRAINT `fk_reward_status` FOREIGN KEY (`status`) REFERENCES `status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_voucher_code` FOREIGN KEY (`voucher_code`) REFERENCES `voucher` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `voucher`
+--
+ALTER TABLE `voucher`
+  ADD CONSTRAINT `fk_voucher_status` FOREIGN KEY (`status`) REFERENCES `status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
