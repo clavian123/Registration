@@ -9,7 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+<<<<<<< HEAD
 import javax.persistence.JoinTable;
+=======
+>>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -18,7 +21,11 @@ import javax.persistence.Table;
 @Table(name="customers")
 public class Customer {
 	@Id
+<<<<<<< HEAD
 	@GeneratedValue(strategy = GenerationType.AUTO)
+=======
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+>>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
 	@Column(name ="id")
 	private long id;
 	
@@ -28,7 +35,11 @@ public class Customer {
 	@Column(name="title")
 	private String title; 
 	
+<<<<<<< HEAD
 	@Column(name="name")
+=======
+	@Column(name"name");
+>>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
 	private String name;
 	
 	@Column(name="id_type")
@@ -134,8 +145,11 @@ public class Customer {
 	@Column(name="pin")
 	private String pin;
 	
+<<<<<<< HEAD
 	@ManyToOne()
 	@JoinTable(name="customers", joinColumns = {@JoinColumn (name="id", nullable = false)}, inverseJoinColumns = {@JoinColumn (name="id", nullable = false)})
+=======
+>>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
 	private List<User>user;
 	private List<TempRegis> tempRegis;
 	public Customer(long id, String cif_code, String title, String name, String id_type, String id_number,
@@ -416,7 +430,13 @@ public class Customer {
 	public void setPin(String pin) {
 		this.pin = pin;
 	}
+<<<<<<< HEAD
 
+=======
+	
+	@ManyToOne()
+	@JoinColumn(name ="id_user")
+>>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
 	public List<User> getUser() {
 		return user;
 	}
@@ -424,6 +444,11 @@ public class Customer {
 		this.user = user;
 	}
 	
+<<<<<<< HEAD
+=======
+	@OneToOne()
+	@JoinColumn(name ="id_temp_regis")
+>>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
 	public List<TempRegis> getTempRegis() {
 		return tempRegis;
 	}
