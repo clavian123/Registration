@@ -18,8 +18,8 @@ import javax.persistence.Table;
 public class Voucher {
 	@Id
 	@GeneratedValue(strategy =GenerationType.AUTO )
-	@Column(name="id")
-	private long id;
+	@Column(name="id_voucher")
+	private long idVoucher;
 	
 	@Column(name="voucher_code")
 	private String voucherCode;
@@ -43,28 +43,28 @@ public class Voucher {
 	private String description;
 	
 	@Column(name="status")
-	private long status;
+	private long idStatus;
 	
-	@OneToOne
-	@MapsId
-	private Reward reward;
+	
+	//nanti cek
+	
 	
 	@ManyToOne
-	@JoinColumn(name="id",nullable = false)
+	@JoinColumn(name="id_status",nullable = false)
 	private Status status2;
 	
 	@ManyToOne
-	@JoinColumn(name="id",nullable = false)
+	@JoinColumn(name="id_voucher",nullable = false)
 	private UserVoucher userVoucher;
 	
 	public Voucher() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Voucher(long id, String voucherCode, String type, long maxRedeem, Date startDate, Date endDate, long amount,
-			String description, long status, Reward reward, Status status2, UserVoucher userVoucher) {
+	public Voucher(long idVoucher, String voucherCode, String type, long maxRedeem, Date startDate, Date endDate,
+			long amount, String description, long idStatus, Status status2, UserVoucher userVoucher) {
 		super();
-		this.id = id;
+		this.idVoucher = idVoucher;
 		this.voucherCode = voucherCode;
 		this.type = type;
 		this.maxRedeem = maxRedeem;
@@ -72,18 +72,17 @@ public class Voucher {
 		this.endDate = endDate;
 		this.amount = amount;
 		this.description = description;
-		this.status = status;
-		this.reward = reward;
+		this.idStatus = idStatus;
 		this.status2 = status2;
 		this.userVoucher = userVoucher;
 	}
 
-	public long getId() {
-		return id;
+	public long getIdVoucher() {
+		return idVoucher;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setIdVoucher(long idVoucher) {
+		this.idVoucher = idVoucher;
 	}
 
 	public String getVoucherCode() {
@@ -142,20 +141,12 @@ public class Voucher {
 		this.description = description;
 	}
 
-	public long getStatus() {
-		return status;
+	public long getIdStatus() {
+		return idStatus;
 	}
 
-	public void setStatus(long status) {
-		this.status = status;
-	}
-
-	public Reward getReward() {
-		return reward;
-	}
-
-	public void setReward(Reward reward) {
-		this.reward = reward;
+	public void setIdStatus(long idStatus) {
+		this.idStatus = idStatus;
 	}
 
 	public Status getStatus2() {
@@ -173,12 +164,6 @@ public class Voucher {
 	public void setUserVoucher(UserVoucher userVoucher) {
 		this.userVoucher = userVoucher;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
+		
 }

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -19,8 +20,8 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private long id;
+	@Column(name = "id_user")
+	private long idUser;
 	
 	@Column(name ="username")
 	private String username;
@@ -34,37 +35,35 @@ public class User {
 	@Column(name="created_date")
 	private Date createdDate;
 	
-//	@ManyToOne
-//	@JoinColumn(name="id", nullable = false)
-//	private UserVoucher userVoucher;
-//	
-	
-	
-	@OneToOne(mappedBy = "user")
+	//nanti cek lagi
+	 @JoinTable(name = "customers", 
+		      joinColumns = 
+		        { @JoinColumn(name = "id_user", referencedColumnName = "id_user") },
+		      inverseJoinColumns = 
+		        { @JoinColumn(name = "id_customer", referencedColumnName = "id_customer") })
 	private List<Customers>customers;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(long id, String username, String password, long customer, Date createdDate, UserVoucher userVoucher,
+	public User(long idUser, String username, String password, long customer, Date createdDate,
 			List<Customers> customers) {
 		super();
-		this.id = id;
+		this.idUser = idUser;
 		this.username = username;
 		this.password = password;
 		this.customer = customer;
 		this.createdDate = createdDate;
-		//this.userVoucher = userVoucher;
 		this.customers = customers;
 	}
 
-	public long getId() {
-		return id;
+	public long getIdUser() {
+		return idUser;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setIdUser(long idUser) {
+		this.idUser = idUser;
 	}
 
 	public String getUsername() {
@@ -99,14 +98,6 @@ public class User {
 		this.createdDate = createdDate;
 	}
 
-//	public UserVoucher getUserVoucher() {
-//		return userVoucher;
-//	}
-//
-//	public void setUserVoucher(UserVoucher userVoucher) {
-//		this.userVoucher = userVoucher;
-//	}
-
 	public List<Customers> getCustomers() {
 		return customers;
 	}
@@ -114,6 +105,11 @@ public class User {
 	public void setCustomers(List<Customers> customers) {
 		this.customers = customers;
 	}
+	
+	
+	
+		
+	
 	
 	
 }

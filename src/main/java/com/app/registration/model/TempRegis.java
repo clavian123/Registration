@@ -15,8 +15,8 @@ import javax.persistence.Table;
 public class TempRegis {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private long id;
+	@Column(name = "id_temp_regis")
+	private long idTempRegis;
 	
 	@Column(name = "cif_code")
 	private String cifCode;
@@ -39,10 +39,10 @@ public class TempRegis {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TempRegis(long id, String cifCode, Blob dataRegistration, String dataRegistrations, Date expiredDate,
-			Date createdDate, String token) {
+	public TempRegis(long idTempRegis, String cifCode, Blob dataRegistration, String dataRegistrations,
+			Date expiredDate, Date createdDate, String token) {
 		super();
-		this.id = id;
+		this.idTempRegis = idTempRegis;
 		this.cifCode = cifCode;
 		this.dataRegistration = dataRegistration;
 		this.dataRegistrations = dataRegistrations;
@@ -51,12 +51,12 @@ public class TempRegis {
 		this.token = token;
 	}
 
-	public long getId() {
-		return id;
+	public long getIdTempRegis() {
+		return idTempRegis;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setIdTempRegis(long idTempRegis) {
+		this.idTempRegis = idTempRegis;
 	}
 
 	public String getCifCode() {
@@ -106,9 +106,7 @@ public class TempRegis {
 	public void setToken(String token) {
 		this.token = token;
 	}
-	
-	
-	
-	
 
+	
+	
 }

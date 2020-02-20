@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -18,16 +19,16 @@ import javax.persistence.Table;
 public class UserVoucher {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="id")
-	private long id;
+	@Column(name="id_user_voucher")
+	private long idUserVoucher;
 	
 	@Column(name="login_name")
 	private String loginName;
 	
-	@Column(name="voucher")
-	private long voucher;
+	@Column(name="id_voucher")
+	private long idVoucher;
 	
-	@Column(name = "created_Date")
+	@Column(name = "created_date")
 	private Date createdDate;
 	
 	@Column(name = "expiry_date")
@@ -46,7 +47,8 @@ public class UserVoucher {
 	@Column(name = "cif_code")
 	private String cifCode;
 	
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "user_vocuher" )
+	@OneToMany
+	@JoinColumn(name = "id_voucher")
 	private List<Voucher>vouchers;
 	
 	//@OneToMany(fetch = FetchType.LAZY,mappedBy = "user_voucher")
@@ -57,13 +59,12 @@ public class UserVoucher {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public UserVoucher(long id, String loginName, long voucher, Date createdDate, Date expiryDate, Date redeemDate,
-			long status, long redeemCounter, String cifCode, List<Voucher> vouchers, List<User> user) {
+	public UserVoucher(long idUserVoucher, String loginName, long idVoucher, Date createdDate, Date expiryDate,
+			Date redeemDate, long status, long redeemCounter, String cifCode, List<Voucher> vouchers) {
 		super();
-		this.id = id;
+		this.idUserVoucher = idUserVoucher;
 		this.loginName = loginName;
-		this.voucher = voucher;
+		this.idVoucher = idVoucher;
 		this.createdDate = createdDate;
 		this.expiryDate = expiryDate;
 		this.redeemDate = redeemDate;
@@ -71,119 +72,89 @@ public class UserVoucher {
 		this.redeemCounter = redeemCounter;
 		this.cifCode = cifCode;
 		this.vouchers = vouchers;
-		//this.user = user;
 	}
 
-
-	public long getId() {
-		return id;
+	public long getIdUserVoucher() {
+		return idUserVoucher;
 	}
 
-
-	public void setId(long id) {
-		this.id = id;
+	public void setIdUserVoucher(long idUserVoucher) {
+		this.idUserVoucher = idUserVoucher;
 	}
-
 
 	public String getLoginName() {
 		return loginName;
 	}
 
-
 	public void setLoginName(String loginName) {
 		this.loginName = loginName;
 	}
 
-
-	public long getVoucher() {
-		return voucher;
+	public long getIdVoucher() {
+		return idVoucher;
 	}
 
-
-	public void setVoucher(long voucher) {
-		this.voucher = voucher;
+	public void setIdVoucher(long idVoucher) {
+		this.idVoucher = idVoucher;
 	}
-
 
 	public Date getCreatedDate() {
 		return createdDate;
 	}
 
-
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
-
 
 	public Date getExpiryDate() {
 		return expiryDate;
 	}
 
-
 	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
 	}
-
 
 	public Date getRedeemDate() {
 		return redeemDate;
 	}
 
-
 	public void setRedeemDate(Date redeemDate) {
 		this.redeemDate = redeemDate;
 	}
-
 
 	public long getStatus() {
 		return status;
 	}
 
-
 	public void setStatus(long status) {
 		this.status = status;
 	}
-
 
 	public long getRedeemCounter() {
 		return redeemCounter;
 	}
 
-
 	public void setRedeemCounter(long redeemCounter) {
 		this.redeemCounter = redeemCounter;
 	}
-
 
 	public String getCifCode() {
 		return cifCode;
 	}
 
-
 	public void setCifCode(String cifCode) {
 		this.cifCode = cifCode;
 	}
-
 
 	public List<Voucher> getVouchers() {
 		return vouchers;
 	}
 
-
 	public void setVouchers(List<Voucher> vouchers) {
 		this.vouchers = vouchers;
 	}
 
-
-//	public List<User> getUser() {
-//		return user;
-//	}
-//
-//
-//	public void setUser(List<User> user) {
-//		this.user = user;
-//	}
 	
-	
+		
 
 }

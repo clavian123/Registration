@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,8 +18,8 @@ import javax.persistence.Table;
 public class Customers {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="id")
-	private long id;
+	@Column(name ="id_customer")
+	private long idCustomer;
 	
 	@Column(name="cif_code")
 	private String cifCode;
@@ -132,15 +133,17 @@ public class Customers {
 	@Column(name="pin")
 	private String pin;
 	
-	@ManyToOne
-	@JoinColumn(name = "id",nullable = false)
+	//@ManyToOne
+	//@JoinColumn(name = "id",nullable = false)
+	
+	@OneToOne(mappedBy = "customers")
 	private User user;
 	
 	public Customers() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Customers(long id, String cifCode, String title, String name, String idType, String idNumber,
+	public Customers(long idCustomer, String cifCode, String title, String name, String idType, String idNumber,
 			Date idExpiryDate, String gender, String maritalStatus, String address, String rtRw, String kelurahan,
 			String kecamatan, String city, String postalCode, String province, String currentAddress,
 			String currentRtRw, String currentKelurahan, String currentKecamatan, String currentCity,
@@ -149,7 +152,7 @@ public class Customers {
 			Date createdDate, String createdBy, Date lastUpdatedDate, String lastUpdatedBy, String pan, String pin,
 			User user) {
 		super();
-		this.id = id;
+		this.idCustomer = idCustomer;
 		this.cifCode = cifCode;
 		this.title = title;
 		this.name = name;
@@ -190,12 +193,12 @@ public class Customers {
 		this.user = user;
 	}
 
-	public long getId() {
-		return id;
+	public long getIdCustomer() {
+		return idCustomer;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setIdCustomer(long idCustomer) {
+		this.idCustomer = idCustomer;
 	}
 
 	public String getCifCode() {
@@ -501,7 +504,7 @@ public class Customers {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 	
 	
 }

@@ -29,7 +29,7 @@ public class Reward {
 	private String type;
 	
 	@Column(name="status")
-	private long status;
+	private long idStatus;
 	
 	@Column(name="voucher_code")
 	private long voucherCode;
@@ -40,95 +40,113 @@ public class Reward {
 	
 	
 	@ManyToOne
-	@JoinColumn(name="status",referencedColumnName ="id_status" , nullable = false)
+	//@JoinColumn(name="status",referencedColumnName ="id_status" , nullable = false)
+	@JoinColumn(name = "id_status", nullable = false)
 	private Status status2;
 	
-	@OneToOne(mappedBy = "reward",cascade = CascadeType.ALL)
-	private Voucher voucher;
+
 	
 	public Reward() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reward(long idReward, String rewardCode, String type, long status, long voucherCode, List<Event> events,
-			Status status2, Voucher voucher) {
+
+
+	public Reward(long idReward, String rewardCode, String type, long idStatus, long voucherCode, List<Event> events,
+			Status status2) {
 		super();
 		this.idReward = idReward;
 		this.rewardCode = rewardCode;
 		this.type = type;
-		this.status = status;
+		this.idStatus = idStatus;
 		this.voucherCode = voucherCode;
 		this.events = events;
 		this.status2 = status2;
-		this.voucher = voucher;
 	}
+
+
 
 	public long getIdReward() {
 		return idReward;
 	}
 
+
+
 	public void setIdReward(long idReward) {
 		this.idReward = idReward;
 	}
+
+
 
 	public String getRewardCode() {
 		return rewardCode;
 	}
 
+
+
 	public void setRewardCode(String rewardCode) {
 		this.rewardCode = rewardCode;
 	}
+
+
 
 	public String getType() {
 		return type;
 	}
 
+
+
 	public void setType(String type) {
 		this.type = type;
 	}
 
-	public long getStatus() {
-		return status;
+
+
+	public long getIdStatus() {
+		return idStatus;
 	}
 
-	public void setStatus(long status) {
-		this.status = status;
+
+
+	public void setIdStatus(long idStatus) {
+		this.idStatus = idStatus;
 	}
+
+
 
 	public long getVoucherCode() {
 		return voucherCode;
 	}
 
+
+
 	public void setVoucherCode(long voucherCode) {
 		this.voucherCode = voucherCode;
 	}
+
+
 
 	public List<Event> getEvents() {
 		return events;
 	}
 
+
+
 	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
+
+
 
 	public Status getStatus2() {
 		return status2;
 	}
 
+
+
 	public void setStatus2(Status status2) {
 		this.status2 = status2;
 	}
 
-	public Voucher getVoucher() {
-		return voucher;
-	}
-
-	public void setVoucher(Voucher voucher) {
-		this.voucher = voucher;
-	}
-
-	
-	
-
-		
+			
 }

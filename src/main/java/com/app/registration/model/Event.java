@@ -38,7 +38,7 @@ public class Event {
 	private Date eventEnd;
 	
 	@ManyToMany 
-	@JoinTable(name = "event_reward", joinColumns = { @JoinColumn(name = "id_reward", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "id_event", nullable = false) })
+	@JoinTable(name = "event", joinColumns = { @JoinColumn(name = "id_reward", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "id_event", nullable = false) })
 	private List<Reward> reward;
 	
 	public Event() {

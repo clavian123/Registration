@@ -1,12 +1,15 @@
 package com.app.registration.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,8 +18,8 @@ public class AllCustomersData {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="id")
-	private long id;
+	@Column(name ="id_dummy_customer")
+	private long idDummyCustomer;
 	
 	@Column(name="cif_code")
 	private String cifCode;
@@ -109,7 +112,7 @@ public class AllCustomersData {
 	private String nationality;
 	
 	@Column(name="status")
-	private long status;
+	private long idStatus;
 	
 	@Column(name="created_date")
 	private Date createdDate;
@@ -130,16 +133,19 @@ public class AllCustomersData {
 	@Column(name="pin")
 	private String pin;
 	
+	@OneToOne(mappedBy = "status")
+	private Status status;
+	
 	public AllCustomersData() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public long getId() {
-		return id;
+	public long getIdDummyCustomer() {
+		return idDummyCustomer;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setIdDummyCustomer(long idDummyCustomer) {
+		this.idDummyCustomer = idDummyCustomer;
 	}
 
 	public String getCifCode() {
@@ -382,12 +388,12 @@ public class AllCustomersData {
 		this.nationality = nationality;
 	}
 
-	public long getStatus() {
-		return status;
+	public long getIdStatus() {
+		return idStatus;
 	}
 
-	public void setStatus(long status) {
-		this.status = status;
+	public void setIdStatus(long idStatus) {
+		this.idStatus = idStatus;
 	}
 
 	public Date getCreatedDate() {
@@ -437,7 +443,15 @@ public class AllCustomersData {
 	public void setPin(String pin) {
 		this.pin = pin;
 	}
-	
-	
 
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+		
+	
 }
