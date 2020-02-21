@@ -1,7 +1,9 @@
 package com.app.registration.model;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -49,20 +52,27 @@ public class Voucher {
 	//nanti cek
 	
 	
-	@ManyToOne
-	@JoinColumn(name="id_status",nullable = false)
-	private Status status2;
+//	@ManyToOne
+//	@JoinColumn(name="id_status",nullable = false)
+//	private Status status2;
+//	
+//	@ManyToOne
+//	@JoinColumn(name="id_voucher",nullable = false)
+//	private UserVoucher userVoucher;
 	
-	@ManyToOne
-	@JoinColumn(name="id_voucher",nullable = false)
-	private UserVoucher userVoucher;
+	@ManyToOne(optional = false,cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="id_status")
+	private Status status;
+	
+	@OneToMany(mappedBy = "voucher")
+	private List<UserVoucher>userVouchers;
 	
 	public Voucher() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Voucher(long idVoucher, String voucherCode, String type, long maxRedeem, Date startDate, Date endDate,
-			long amount, String description, long idStatus, Status status2, UserVoucher userVoucher) {
+			long amount, String description, long idStatus, Status status, List<UserVoucher> userVouchers) {
 		super();
 		this.idVoucher = idVoucher;
 		this.voucherCode = voucherCode;
@@ -73,8 +83,8 @@ public class Voucher {
 		this.amount = amount;
 		this.description = description;
 		this.idStatus = idStatus;
-		this.status2 = status2;
-		this.userVoucher = userVoucher;
+		this.status = status;
+		this.userVouchers = userVouchers;
 	}
 
 	public long getIdVoucher() {
@@ -149,21 +159,23 @@ public class Voucher {
 		this.idStatus = idStatus;
 	}
 
-	public Status getStatus2() {
-		return status2;
+	public Status getStatus() {
+		return status;
 	}
 
-	public void setStatus2(Status status2) {
-		this.status2 = status2;
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
-	public UserVoucher getUserVoucher() {
-		return userVoucher;
+	public List<UserVoucher> getUserVouchers() {
+		return userVouchers;
 	}
 
-	public void setUserVoucher(UserVoucher userVoucher) {
-		this.userVoucher = userVoucher;
+	public void setUserVouchers(List<UserVoucher> userVouchers) {
+		this.userVouchers = userVouchers;
 	}
+
+	
 
 		
 }

@@ -5,17 +5,21 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="")
+@Table(name = "status")
 public class Status {
 	
 	@Id
@@ -25,7 +29,6 @@ public class Status {
 
 	@Column(name="type")
 	private String type;
-	
 	
 	@Column(name = "code")
 	private String code;
@@ -38,29 +41,46 @@ public class Status {
 	
 	//cek ntr
 	//@OneToMany(mappedBy = "status")
-	@OneToMany
-	@JoinColumn(name = "id_status")
+//	@OneToMany
+//	@JoinColumn(name = "id_status")
+//	private List<Reward>rewards;
+//	
+//	@OneToMany(mappedBy = "status")
+//	@JoinColumn(name = "id_status")
+//	private List<Voucher>vouchers;
+	
+	
+	//@OneToOne
+	//@JoinColumn(name = "id_dummy_customer")	     
+
+//	@OneToOne(fetch = FetchType.LAZY,optional = false)
+//	@JoinColumn(name = "id_dummy_customer",nullable = false )
+//	private List<DummyCustomer>dummyCustomers;
+	
+//	@OneToMany(mappedBy = "status") 
+//    private List<Reward>reward;
+	
+//	@OneToOne
+//    @MapsId
+//    private AllCustomersData allCustomersData;
+//	
+//	
+	@OneToMany(mappedBy = "status")
 	private List<Reward>rewards;
 	
-	//@OneToMany(mappedBy = "status")
-	@OneToMany
-	@JoinColumn(name = "id_status")
+	@OneToMany(mappedBy = "status")
 	private List<Voucher>vouchers;
 	
-	
-	 @JoinTable(name = "dummy_customer", 
-		      joinColumns = 
-		        { @JoinColumn(name = "id_status", referencedColumnName = "id_status") },
-		      inverseJoinColumns = 
-		        { @JoinColumn(name = "id_dummy_customer", referencedColumnName = "id_dummy_customer") })
-	private List<AllCustomersData>allCustomersData;
+	@OneToOne
+	@MapsId
+	private AllCustomersData allCustomersData;
 	
 	public Status() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Status(long idStatus, String type, String code, String name, String description, List<Reward> rewards,
-			List<Voucher> vouchers, List<AllCustomersData> allCustomersData) {
+			List<Voucher> vouchers, AllCustomersData allCustomersData) {
 		super();
 		this.idStatus = idStatus;
 		this.type = type;
@@ -128,13 +148,15 @@ public class Status {
 		this.vouchers = vouchers;
 	}
 
-	public List<AllCustomersData> getAllCustomersData() {
+	public AllCustomersData getAllCustomersData() {
 		return allCustomersData;
 	}
 
-	public void setAllCustomersData(List<AllCustomersData> allCustomersData) {
+	public void setAllCustomersData(AllCustomersData allCustomersData) {
 		this.allCustomersData = allCustomersData;
 	}
 
+	
+	
 			
 }

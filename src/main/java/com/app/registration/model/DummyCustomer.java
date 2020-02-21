@@ -1,21 +1,24 @@
 //package com.app.registration.model;
 //
 //
+//import java.io.Serializable;
 //import java.util.Date;
 //import java.util.List;
 //
 //import javax.persistence.Column;
 //import javax.persistence.Entity;
+//import javax.persistence.FetchType;
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.GenerationType;
 //import javax.persistence.Id;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.ManyToOne;
+//import javax.persistence.OneToOne;
 //import javax.persistence.Table;
 //
 //@Entity
 //@Table(name="dummy_customer")
-//public class DummyCustomer {
+//public class DummyCustomer implements Serializable {
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.AUTO)
 //	@Column(name ="id")
@@ -132,313 +135,13 @@
 //	
 //	@Column(name="pin")
 //	private String pin;
-//
-//	public long getId() {
-//		return id;
-//	}
-//
-//	public void setId(long id) {
-//		this.id = id;
-//	}
-//
-//	public String getCif_code() {
-//		return cif_code;
-//	}
-//
-//	public void setCif_code(String cif_code) {
-//		this.cif_code = cif_code;
-//	}
-//
-//	public String getTitle() {
-//		return title;
-//	}
-//
-//	public void setTitle(String title) {
-//		this.title = title;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//	public String getId_type() {
-//		return id_type;
-//	}
-//
-//	public void setId_type(String id_type) {
-//		this.id_type = id_type;
-//	}
-//
-//	public String getId_number() {
-//		return id_number;
-//	}
-//
-//	public void setId_number(String id_number) {
-//		this.id_number = id_number;
-//	}
-//
-//	public Date getId_expiry_date() {
-//		return id_expiry_date;
-//	}
-//
-//	public void setId_expiry_date(Date id_expiry_date) {
-//		this.id_expiry_date = id_expiry_date;
-//	}
-//
-//	public String getGender() {
-//		return gender;
-//	}
-//
-//	public void setGender(String gender) {
-//		this.gender = gender;
-//	}
-//
-//	public String getMarital_status() {
-//		return marital_status;
-//	}
-//
-//	public void setMarital_status(String marital_status) {
-//		this.marital_status = marital_status;
-//	}
-//
-//	public String getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(String address) {
-//		this.address = address;
-//	}
-//
-//	public String getRt_rw() {
-//		return rt_rw;
-//	}
-//
-//	public void setRt_rw(String rt_rw) {
-//		this.rt_rw = rt_rw;
-//	}
-//
-//	public String getKelurahan() {
-//		return kelurahan;
-//	}
-//
-//	public void setKelurahan(String kelurahan) {
-//		this.kelurahan = kelurahan;
-//	}
-//
-//	public String getKecamatan() {
-//		return kecamatan;
-//	}
-//
-//	public void setKecamatan(String kecamatan) {
-//		this.kecamatan = kecamatan;
-//	}
-//
-//	public String getCity() {
-//		return city;
-//	}
-//
-//	public void setCity(String city) {
-//		this.city = city;
-//	}
-//
-//	public String getPostal_code() {
-//		return postal_code;
-//	}
-//
-//	public void setPostal_code(String postal_code) {
-//		this.postal_code = postal_code;
-//	}
-//
-//	public String getProvince() {
-//		return province;
-//	}
-//
-//	public void setProvince(String province) {
-//		this.province = province;
-//	}
-//
-//	public String getCurrent_address() {
-//		return current_address;
-//	}
-//
-//	public void setCurrent_address(String current_address) {
-//		this.current_address = current_address;
-//	}
-//
-//	public String getCurrent_rt_rw() {
-//		return current_rt_rw;
-//	}
-//
-//	public void setCurrent_rt_rw(String current_rt_rw) {
-//		this.current_rt_rw = current_rt_rw;
-//	}
-//
-//	public String getCurrent_kelurahan() {
-//		return current_kelurahan;
-//	}
-//
-//	public void setCurrent_kelurahan(String current_kelurahan) {
-//		this.current_kelurahan = current_kelurahan;
-//	}
-//
-//	public String getCurrent_kecamatan() {
-//		return current_kecamatan;
-//	}
-//
-//	public void setCurrent_kecamatan(String current_kecamatan) {
-//		this.current_kecamatan = current_kecamatan;
-//	}
-//
-//	public String getCurrent_city() {
-//		return current_city;
-//	}
-//
-//	public void setCurrent_city(String current_city) {
-//		this.current_city = current_city;
-//	}
-//
-//	public String getCurrent_postal_code() {
-//		return current_postal_code;
-//	}
-//
-//	public void setCurrent_postal_code(String current_postal_code) {
-//		this.current_postal_code = current_postal_code;
-//	}
-//
-//	public String getCurrent_province() {
-//		return current_province;
-//	}
-//
-//	public void setCurrent_province(String current_province) {
-//		this.current_province = current_province;
-//	}
-//
-//	public String getMothers_maiden() {
-//		return mothers_maiden;
-//	}
-//
-//	public void setMothers_maiden(String mothers_maiden) {
-//		this.mothers_maiden = mothers_maiden;
-//	}
-//
-//	public String getBirth_place() {
-//		return birth_place;
-//	}
-//
-//	public void setBirth_place(String birth_place) {
-//		this.birth_place = birth_place;
-//	}
-//
-//	public Date getBirth_date() {
-//		return birth_date;
-//	}
-//
-//	public void setBirth_date(Date birth_date) {
-//		this.birth_date = birth_date;
-//	}
-//
-//	public String getOccupation() {
-//		return occupation;
-//	}
-//
-//	public void setOccupation(String occupation) {
-//		this.occupation = occupation;
-//	}
-//
-//	public String getMonthly_income() {
-//		return monthly_income;
-//	}
-//
-//	public void setMonthly_income(String monthly_income) {
-//		this.monthly_income = monthly_income;
-//	}
-//
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//
-//	public String getMobile_number() {
-//		return mobile_number;
-//	}
-//
-//	public void setMobile_number(String mobile_number) {
-//		this.mobile_number = mobile_number;
-//	}
-//
-//	public String getNationality() {
-//		return nationality;
-//	}
-//
-//	public void setNationality(String nationality) {
-//		this.nationality = nationality;
-//	}
-//
-//	public long getStatus() {
-//		return status;
-//	}
-//
-//	public void setStatus(long status) {
-//		this.status = status;
-//	}
-//
-//	public Date getCreated_date() {
-//		return created_date;
-//	}
-//
-//	public void setCreated_date(Date created_date) {
-//		this.created_date = created_date;
-//	}
-//
-//	public String getCreated_by() {
-//		return created_by;
-//	}
-//
-//	public void setCreated_by(String created_by) {
-//		this.created_by = created_by;
-//	}
-//
-//	public Date getLast_updated_date() {
-//		return last_updated_date;
-//	}
-//
-//	public void setLast_updated_date(Date last_updated_date) {
-//		this.last_updated_date = last_updated_date;
-//	}
-//
-//	public String getLast_updated_by() {
-//		return last_updated_by;
-//	}
-//
-//	public void setLast_updated_by(String last_updated_by) {
-//		this.last_updated_by = last_updated_by;
-//	}
-//
-//	public String getPan() {
-//		return pan;
-//	}
-//
-//	public void setPan(String pan) {
-//		this.pan = pan;
-//	}
-//
-//	public String getPin() {
-//		return pin;
-//	}
-//
-//	public void setPin(String pin) {
-//		this.pin = pin;
-//	}
 //	
 //	
+////	@OneToOne(fetch = FetchType.LAZY,optional = false)
+////	@JoinColumn(name = "id_status",nullable = false )
+////	private Status status2;
 //	
+//
 //	
 //	
 //	

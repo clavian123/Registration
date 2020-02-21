@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -46,21 +48,24 @@ public class UserVoucher {
 	
 	@Column(name = "cif_code")
 	private String cifCode;
-	
-	@OneToMany
-	@JoinColumn(name = "id_voucher")
-	private List<Voucher>vouchers;
-	
-	//@OneToMany(fetch = FetchType.LAZY,mappedBy = "user_voucher")
-	//private List<User>user = new ArrayList<User>();
-	
+//	
+//	@OneToMany
+//	@JoinColumn(name = "id_voucher")
+//	private List<Voucher>vouchers;
+//	
+//	@OneToMany(fetch = FetchType.LAZY,mappedBy = "user_voucher")
+//	private List<User>user = new ArrayList<User>();
+//	
+	@ManyToOne(optional = false,cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH} )
+	@JoinColumn(name="id_voucher", insertable = false, updatable = false)
+	private Voucher voucher;
 	
 	public UserVoucher() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public UserVoucher(long idUserVoucher, String loginName, long idVoucher, Date createdDate, Date expiryDate,
-			Date redeemDate, long status, long redeemCounter, String cifCode, List<Voucher> vouchers) {
+			Date redeemDate, long status, long redeemCounter, String cifCode, Voucher voucher) {
 		super();
 		this.idUserVoucher = idUserVoucher;
 		this.loginName = loginName;
@@ -71,7 +76,7 @@ public class UserVoucher {
 		this.status = status;
 		this.redeemCounter = redeemCounter;
 		this.cifCode = cifCode;
-		this.vouchers = vouchers;
+		this.voucher = voucher;
 	}
 
 	public long getIdUserVoucher() {
@@ -146,15 +151,14 @@ public class UserVoucher {
 		this.cifCode = cifCode;
 	}
 
-	public List<Voucher> getVouchers() {
-		return vouchers;
+	public Voucher getVoucher() {
+		return voucher;
 	}
 
-	public void setVouchers(List<Voucher> vouchers) {
-		this.vouchers = vouchers;
+	public void setVoucher(Voucher voucher) {
+		this.voucher = voucher;
 	}
 
 	
-		
 
 }

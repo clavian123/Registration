@@ -3,11 +3,13 @@ package com.app.registration.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -133,12 +135,20 @@ public class AllCustomersData {
 	@Column(name="pin")
 	private String pin;
 	
-	@OneToOne(mappedBy = "status")
-	private Status status;
+//	//@OneToOne(mappedBy = "allCustomersData")
+//	private List<Status> status;
+//	
+//	public AllCustomersData() {
+//		// TODO Auto-generated constructor stub
+//	}
+//	@OneToOne
+//	@JoinColumn(name = "id_status")
+//	private Status status;
 	
-	public AllCustomersData() {
-		// TODO Auto-generated constructor stub
-	}
+	
+	@OneToOne(optional = false)
+	@JoinColumn(name="status", insertable = false, updatable = false)
+	private Status status;
 
 	public long getIdDummyCustomer() {
 		return idDummyCustomer;
@@ -451,7 +461,7 @@ public class AllCustomersData {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-
-		
+	
+	
 	
 }

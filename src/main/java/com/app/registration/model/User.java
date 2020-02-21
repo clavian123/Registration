@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name ="user")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,19 +36,26 @@ public class User {
 	private Date createdDate;
 	
 	//nanti cek lagi
-	 @JoinTable(name = "customers", 
-		      joinColumns = 
-		        { @JoinColumn(name = "id_user", referencedColumnName = "id_user") },
-		      inverseJoinColumns = 
-		        { @JoinColumn(name = "id_customer", referencedColumnName = "id_customer") })
-	private List<Customers>customers;
+//	 @JoinTable(name = "customers", 
+//		      joinColumns = 
+//		        { @JoinColumn(name = "id_user", referencedColumnName = "id_user") },
+//		      inverseJoinColumns = 
+//		        { @JoinColumn(name = "id_customer", referencedColumnName = "id_customer") })
+	//private List<Customers>customers;
+	
+//	@OneToOne
+//	@JoinColumn(name = "id_status")
+//	private List<Customers>customers;
+//	
+	@OneToOne
+	@JoinColumn(name = "id_customer")
+	private Customers customers;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(long idUser, String username, String password, long customer, Date createdDate,
-			List<Customers> customers) {
+	public User(long idUser, String username, String password, long customer, Date createdDate, Customers customers) {
 		super();
 		this.idUser = idUser;
 		this.username = username;
@@ -98,17 +105,14 @@ public class User {
 		this.createdDate = createdDate;
 	}
 
-	public List<Customers> getCustomers() {
+	public Customers getCustomers() {
 		return customers;
 	}
 
-	public void setCustomers(List<Customers> customers) {
+	public void setCustomers(Customers customers) {
 		this.customers = customers;
 	}
-	
-	
-	
-		
+
 	
 	
 	

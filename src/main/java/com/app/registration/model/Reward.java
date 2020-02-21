@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -39,21 +40,27 @@ public class Reward {
     private List<Event>events;
 	
 	
-	@ManyToOne
-	//@JoinColumn(name="status",referencedColumnName ="id_status" , nullable = false)
-	@JoinColumn(name = "id_status", nullable = false)
-	private Status status2;
+//	@ManyToOne
+//	@JoinColumn(name="status",referencedColumnName ="id_status" , nullable = false)
+//	@JoinColumn(name = "id_status", nullable = false)
+//	private Status status2;
 	
-
+//	@ManyToOne
+//	@JoinTable(name = "status", joinColumns = { @JoinColumn(name = "id_status", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "id_reward", nullable = false) })
+//	private List<Status> status;
+	
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="id_status")
+	private Status status;
+	
 	
 	public Reward() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-
 	public Reward(long idReward, String rewardCode, String type, long idStatus, long voucherCode, List<Event> events,
-			Status status2) {
+			Status status) {
 		super();
 		this.idReward = idReward;
 		this.rewardCode = rewardCode;
@@ -61,9 +68,8 @@ public class Reward {
 		this.idStatus = idStatus;
 		this.voucherCode = voucherCode;
 		this.events = events;
-		this.status2 = status2;
+		this.status = status;
 	}
-
 
 
 	public long getIdReward() {
@@ -71,11 +77,9 @@ public class Reward {
 	}
 
 
-
 	public void setIdReward(long idReward) {
 		this.idReward = idReward;
 	}
-
 
 
 	public String getRewardCode() {
@@ -83,11 +87,9 @@ public class Reward {
 	}
 
 
-
 	public void setRewardCode(String rewardCode) {
 		this.rewardCode = rewardCode;
 	}
-
 
 
 	public String getType() {
@@ -95,11 +97,9 @@ public class Reward {
 	}
 
 
-
 	public void setType(String type) {
 		this.type = type;
 	}
-
 
 
 	public long getIdStatus() {
@@ -107,11 +107,9 @@ public class Reward {
 	}
 
 
-
 	public void setIdStatus(long idStatus) {
 		this.idStatus = idStatus;
 	}
-
 
 
 	public long getVoucherCode() {
@@ -119,11 +117,9 @@ public class Reward {
 	}
 
 
-
 	public void setVoucherCode(long voucherCode) {
 		this.voucherCode = voucherCode;
 	}
-
 
 
 	public List<Event> getEvents() {
@@ -131,22 +127,22 @@ public class Reward {
 	}
 
 
-
 	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
 
 
-
-	public Status getStatus2() {
-		return status2;
+	public Status getStatus() {
+		return status;
 	}
 
 
-
-	public void setStatus2(Status status2) {
-		this.status2 = status2;
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
+	
+	
+	
 			
 }
