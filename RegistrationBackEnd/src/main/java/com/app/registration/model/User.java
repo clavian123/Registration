@@ -35,20 +35,9 @@ public class User {
 	@Column(name="created_date")
 	private Date createdDate;
 	
-	//nanti cek lagi
-//	 @JoinTable(name = "customers", 
-//		      joinColumns = 
-//		        { @JoinColumn(name = "id_user", referencedColumnName = "id_user") },
-//		      inverseJoinColumns = 
-//		        { @JoinColumn(name = "id_customer", referencedColumnName = "id_customer") })
-	//private List<Customers>customers;
 	
-//	@OneToOne
-//	@JoinColumn(name = "id_status")
-//	private List<Customers>customers;
-//	
 	@OneToOne
-	@JoinColumn(name = "id_customer")
+	@JoinColumn(name = "id_customer", nullable = false, insertable = false, updatable = false)
 	private Customers customers;
 	
 	public User() {
@@ -113,7 +102,6 @@ public class User {
 		this.customers = customers;
 	}
 
-	
-	
+		
 	
 }

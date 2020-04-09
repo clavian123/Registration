@@ -45,7 +45,7 @@ public class Voucher {
 	@Column(name="description")
 	private String description;
 	
-	@Column(name="status")
+	@Column(name="id_status")
 	private long idStatus;
 	
 	
@@ -61,18 +61,18 @@ public class Voucher {
 //	private UserVoucher userVoucher;
 	
 	@ManyToOne(optional = false,cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinColumn(name="id_status")
+	@JoinColumn(name="id_status", nullable = false, insertable = false, updatable = false)
 	private Status status;
 	
-	@OneToMany(mappedBy = "voucher")
-	private List<UserVoucher>userVouchers;
+//	@OneToMany(mappedBy = "voucher")
+//	private List<UserVoucher>userVouchers;
 	
 	public Voucher() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Voucher(long idVoucher, String voucherCode, String type, long maxRedeem, Date startDate, Date endDate,
-			long amount, String description, long idStatus, Status status, List<UserVoucher> userVouchers) {
+			long amount, String description, long idStatus, Status status) {
 		super();
 		this.idVoucher = idVoucher;
 		this.voucherCode = voucherCode;
@@ -84,7 +84,6 @@ public class Voucher {
 		this.description = description;
 		this.idStatus = idStatus;
 		this.status = status;
-		this.userVouchers = userVouchers;
 	}
 
 	public long getIdVoucher() {
@@ -166,16 +165,8 @@ public class Voucher {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-
-	public List<UserVoucher> getUserVouchers() {
-		return userVouchers;
-	}
-
-	public void setUserVouchers(List<UserVoucher> userVouchers) {
-		this.userVouchers = userVouchers;
-	}
-
 	
-
+	
+	
 		
 }

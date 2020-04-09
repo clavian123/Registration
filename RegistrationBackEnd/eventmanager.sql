@@ -382,7 +382,7 @@ ALTER TABLE `reward`
   ADD PRIMARY KEY (`id_reward`),
   ADD KEY `fk_reward_status` (`status`),
   ADD KEY `fk_voucher_code` (`voucher_code`),
-  ADD KEY `FK6a82o2ah9gwqbtwfpl50yky3e` (`statusmodel_id`);
+  
 
 --
 -- Indexes for table `status`
@@ -496,7 +496,6 @@ ALTER TABLE `lookup`
 -- Constraints for table `reward`
 --
 ALTER TABLE `reward`
-  ADD CONSTRAINT `FK6a82o2ah9gwqbtwfpl50yky3e` FOREIGN KEY (`statusmodel_id`) REFERENCES `status` (`id_status`),
   ADD CONSTRAINT `fk_reward_status` FOREIGN KEY (`status`) REFERENCES `status` (`id_status`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_voucher_code` FOREIGN KEY (`voucher_code`) REFERENCES `voucher` (`id_voucher`) ON DELETE CASCADE ON UPDATE CASCADE;
 

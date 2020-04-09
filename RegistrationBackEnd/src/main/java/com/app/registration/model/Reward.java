@@ -29,15 +29,15 @@ public class Reward {
 	@Column(name = "type")
 	private String type;
 	
-	@Column(name="status")
+	@Column(name="id_status")
 	private long idStatus;
 	
 	@Column(name="voucher_code")
 	private long voucherCode;
 	
 	
-	@ManyToMany(mappedBy = "reward") 
-    private List<Event>events;
+//	@ManyToMany(mappedBy = "reward") 
+//    private List<Event>events;
 	
 	
 //	@ManyToOne
@@ -50,7 +50,7 @@ public class Reward {
 //	private List<Status> status;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinColumn(name="id_status")
+	@JoinColumn(name="id_status", nullable = false, insertable = false, updatable = false)
 	private Status status;
 	
 	
@@ -59,15 +59,13 @@ public class Reward {
 	}
 
 
-	public Reward(long idReward, String rewardCode, String type, long idStatus, long voucherCode, List<Event> events,
-			Status status) {
+	public Reward(long idReward, String rewardCode, String type, long idStatus, long voucherCode, Status status) {
 		super();
 		this.idReward = idReward;
 		this.rewardCode = rewardCode;
 		this.type = type;
 		this.idStatus = idStatus;
 		this.voucherCode = voucherCode;
-		this.events = events;
 		this.status = status;
 	}
 
@@ -122,16 +120,6 @@ public class Reward {
 	}
 
 
-	public List<Event> getEvents() {
-		return events;
-	}
-
-
-	public void setEvents(List<Event> events) {
-		this.events = events;
-	}
-
-
 	public Status getStatus() {
 		return status;
 	}
@@ -142,7 +130,6 @@ public class Reward {
 	}
 
 	
-	
-	
+		
 			
 }

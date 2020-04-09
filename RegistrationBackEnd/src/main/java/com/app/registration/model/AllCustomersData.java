@@ -113,7 +113,7 @@ public class AllCustomersData {
 	@Column(name="nationality")
 	private String nationality;
 	
-	@Column(name="status")
+	@Column(name="id_status")
 	private long idStatus;
 	
 	@Column(name="created_date")
@@ -145,9 +145,12 @@ public class AllCustomersData {
 //	@JoinColumn(name = "id_status")
 //	private Status status;
 	
-	
+//	@OneToOne(optional = false)
+//	@JoinColumn(name="id_status", insertable = false, updatable = false)
+//	private Status status;
+//	
 	@OneToOne(optional = false)
-	@JoinColumn(name="status", insertable = false, updatable = false)
+	@JoinColumn(name="id_status", insertable = false, updatable = false)
 	private Status status;
 
 	public long getIdDummyCustomer() {

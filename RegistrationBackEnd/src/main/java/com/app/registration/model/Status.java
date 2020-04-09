@@ -39,57 +39,19 @@ public class Status {
 	@Column(name="description")
 	private String description;
 	
-	//cek ntr
-	//@OneToMany(mappedBy = "status")
-//	@OneToMany
-//	@JoinColumn(name = "id_status")
-//	private List<Reward>rewards;
-//	
-//	@OneToMany(mappedBy = "status")
-//	@JoinColumn(name = "id_status")
-//	private List<Voucher>vouchers;
 	
-	
-	//@OneToOne
-	//@JoinColumn(name = "id_dummy_customer")	     
-
-//	@OneToOne(fetch = FetchType.LAZY,optional = false)
-//	@JoinColumn(name = "id_dummy_customer",nullable = false )
-//	private List<DummyCustomer>dummyCustomers;
-	
-//	@OneToMany(mappedBy = "status") 
-//    private List<Reward>reward;
-	
-//	@OneToOne
-//    @MapsId
-//    private AllCustomersData allCustomersData;
-//	
-//	
-	@OneToMany(mappedBy = "status")
-	private List<Reward>rewards;
-	
-	@OneToMany(mappedBy = "status")
-	private List<Voucher>vouchers;
-	
-	@OneToOne
-	@MapsId
-	private AllCustomersData allCustomersData;
 	
 	public Status() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Status(long idStatus, String type, String code, String name, String description, List<Reward> rewards,
-			List<Voucher> vouchers, AllCustomersData allCustomersData) {
+	public Status(long idStatus, String type, String code, String name, String description) {
 		super();
 		this.idStatus = idStatus;
 		this.type = type;
 		this.code = code;
 		this.name = name;
 		this.description = description;
-		this.rewards = rewards;
-		this.vouchers = vouchers;
-		this.allCustomersData = allCustomersData;
 	}
 
 	public long getIdStatus() {
@@ -132,31 +94,6 @@ public class Status {
 		this.description = description;
 	}
 
-	public List<Reward> getRewards() {
-		return rewards;
-	}
-
-	public void setRewards(List<Reward> rewards) {
-		this.rewards = rewards;
-	}
-
-	public List<Voucher> getVouchers() {
-		return vouchers;
-	}
-
-	public void setVouchers(List<Voucher> vouchers) {
-		this.vouchers = vouchers;
-	}
-
-	public AllCustomersData getAllCustomersData() {
-		return allCustomersData;
-	}
-
-	public void setAllCustomersData(AllCustomersData allCustomersData) {
-		this.allCustomersData = allCustomersData;
-	}
-
-	
-	
+		
 			
 }

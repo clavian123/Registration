@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +23,7 @@ public class TempRegis {
 	private String cifCode;
 	
 	@Column(name = "data_registration")
+	@Lob
 	private Blob dataRegistration;
 	
 	private String dataRegistrations;
@@ -38,6 +40,7 @@ public class TempRegis {
 	public TempRegis() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
 	public TempRegis(long idTempRegis, String cifCode, Blob dataRegistration, String dataRegistrations,
 			Date expiredDate, Date createdDate, String token) {
@@ -50,6 +53,7 @@ public class TempRegis {
 		this.createdDate = createdDate;
 		this.token = token;
 	}
+
 
 	public long getIdTempRegis() {
 		return idTempRegis;
@@ -75,13 +79,6 @@ public class TempRegis {
 		this.dataRegistration = dataRegistration;
 	}
 
-	public String getDataRegistrations() {
-		return dataRegistrations;
-	}
-
-	public void setDataRegistrations(String dataRegistrations) {
-		this.dataRegistrations = dataRegistrations;
-	}
 
 	public Date getExpiredDate() {
 		return expiredDate;
@@ -107,6 +104,9 @@ public class TempRegis {
 		this.token = token;
 	}
 
+
+
+	
 	
 	
 }

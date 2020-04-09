@@ -37,16 +37,20 @@ public class Event {
 	@Column(name = "event_end")
 	private Date eventEnd;
 	
-	@ManyToMany 
-	@JoinTable(name = "event", joinColumns = { @JoinColumn(name = "id_reward", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "id_event", nullable = false) })
-	private List<Reward> reward;
+	@ManyToMany (cascade = CascadeType.PERSIST)
+	 @JoinTable(name = "event_reward", joinColumns = { @JoinColumn(name = "id_reward", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "id_event", nullable = false) })
+	 private List<Reward>rewards;
 	
+//	@ManyToMany 
+//	@JoinTable(name = "event", joinColumns = { @JoinColumn(name = "id_reward", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "id_event", nullable = false) })
+//	private List<Reward> reward;
+//	
 	public Event() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Event(long idEvent, String code, String name, String description, Date eventStart, Date eventEnd,
-			List<Reward> reward) {
+			List<Reward> rewards) {
 		super();
 		this.idEvent = idEvent;
 		this.code = code;
@@ -54,7 +58,7 @@ public class Event {
 		this.description = description;
 		this.eventStart = eventStart;
 		this.eventEnd = eventEnd;
-		this.reward = reward;
+		this.rewards = rewards;
 	}
 
 	public long getIdEvent() {
@@ -105,15 +109,15 @@ public class Event {
 		this.eventEnd = eventEnd;
 	}
 
-	public List<Reward> getReward() {
-		return reward;
+	public List<Reward> getRewards() {
+		return rewards;
 	}
 
-	public void setReward(List<Reward> reward) {
-		this.reward = reward;
+	public void setRewards(List<Reward> rewards) {
+		this.rewards = rewards;
 	}
 
-	
+		
 	
 	
 	

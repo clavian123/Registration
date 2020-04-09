@@ -40,7 +40,7 @@ public class UserVoucher {
 	@Column(name = "redeem_date")
 	private Date redeemDate;
 	
-	@Column(name = "status")
+	@Column(name = "id_status")
 	private long status;
 	
 	@Column(name="redeem_counter")
@@ -57,7 +57,7 @@ public class UserVoucher {
 //	private List<User>user = new ArrayList<User>();
 //	
 	@ManyToOne(optional = false,cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH} )
-	@JoinColumn(name="id_voucher", insertable = false, updatable = false)
+	@JoinColumn(name="id_voucher", nullable = false,insertable = false, updatable = false)
 	private Voucher voucher;
 	
 	public UserVoucher() {
