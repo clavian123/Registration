@@ -488,12 +488,11 @@ public class AllCustomer {
 		this.pin = pin;
 	}
 	
-<<<<<<< HEAD
-=======
+
 	
 	@ManyToOne()
 	@JoinColumn(name="id_temp_regis")
->>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
+
 	public List<TempRegis> getTempRegis() {
 		return tempRegis;
 	}

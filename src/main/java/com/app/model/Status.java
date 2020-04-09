@@ -1,9 +1,8 @@
 package com.app.model;
 
-<<<<<<< HEAD
+
 import java.util.List;
-=======
->>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
+
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -23,11 +22,9 @@ import javax.persistence.Table;
 @Table(name = "status")
 public class Status {
 	@Id
-<<<<<<< HEAD
+
 	@GeneratedValue(strategy = GenerationType.AUTO)
-=======
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
->>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
+
 	@Column(name="id")
 	private long id;
 	
@@ -43,34 +40,8 @@ public class Status {
 	@Column(name = "description")
 	private String description;
 	
-<<<<<<< HEAD
-	@OneToMany ()
-	@JoinTable(name="status", joinColumns = {@JoinColumn (name="id", nullable = false)}, inverseJoinColumns = {@JoinColumn (name="id", nullable = false)})
-	private List<Voucher>voucher;
-	
-	@OneToMany ()
-	@JoinTable(name="status", joinColumns = {@JoinColumn (name="id", nullable = false)}, inverseJoinColumns = {@JoinColumn (name="id", nullable = false)})
-	private List<Reward>reward;
-=======
-	
-	
-	private Set<Voucher>voucher;
-	
-	
-	
-	@OneToMany (mappedBy="status")
-	@JoinTable(name="status", joinColumns = {@JoinColumn(name ="id_voucher", nullable=false), inverseJoinColumns = @JoinColumns(name ="id_status", nullable = false)})
-	
->>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
-	
-	public Status() {
-		// TODO Auto-generated constructor stub
-	}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
+	
 	public Status(long id, String type, String code, String name, String description, 
 			Set<Voucher> voucher) {
 		super();
@@ -80,7 +51,7 @@ public class Status {
 		this.name = name;
 		this.description = description;
 		//this.vouchers = vouchers;
-		this.voucher = voucher;
+		//this.voucher = voucher;
 	}
 
 
@@ -134,22 +105,6 @@ public class Status {
 	}
 
 	
-	public Set<Voucher> getVoucher() {
-		return voucher;
-	}
-
-
-	public void setVoucher(Set<Voucher> voucher) {
-		this.voucher = voucher;
-	}
-<<<<<<< HEAD
-=======
-
-
 	
 
-	
-	
-	
->>>>>>> 0eab4b9f08806e4099659f0935b365afcac0a26f
 }

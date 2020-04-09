@@ -38,11 +38,7 @@ public class UserRepoImpl implements UserRepo {
 		
 	}
 
-	@Override
-	public void save(User user) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public List<User> findAll() {
@@ -186,6 +182,12 @@ public class UserRepoImpl implements UserRepo {
 	public void saves(User user) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public <S extends User> S save(S entity) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
