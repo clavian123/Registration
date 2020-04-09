@@ -132,7 +132,7 @@ public class AllCustomer {
 	@Column(name="pin")
 	private String pin;
 	
-	private List<TempRegis>tempRegis;
+	
 
 	public AllCustomer(long id, String cif_code, String title, String name, String id_type, String id_number,
 			Date id_expiry_date, String gender, String marital_status, String address, String rt_rw, String kelurahan,
@@ -181,7 +181,7 @@ public class AllCustomer {
 		this.last_updated_by = last_updated_by;
 		this.pan = pan;
 		this.pin = pin;
-		this.tempRegis = tempRegis;
+		
 	}
 
 	public long getId() {
@@ -490,16 +490,7 @@ public class AllCustomer {
 	
 
 	
-	@ManyToOne()
-	@JoinColumn(name="id_temp_regis")
-
-	public List<TempRegis> getTempRegis() {
-		return tempRegis;
-	}
-
-	public void setTempRegis(List<TempRegis> tempRegis) {
-		this.tempRegis = tempRegis;
-	}
+	
 	
 	
 	
