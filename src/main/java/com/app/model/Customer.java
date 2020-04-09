@@ -436,15 +436,6 @@ public class Customer {
 	}
 	
 
-	@OneToOne()
-	@JoinColumn(name ="id_temp_regis")
-
-	public List<TempRegis> getTempRegis() {
-		return tempRegis;
-	}
-	public void setTempRegis(List<TempRegis> tempRegis) {
-		this.tempRegis = tempRegis;
-	}
 	
 	
 	
