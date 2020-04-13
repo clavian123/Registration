@@ -9,6 +9,7 @@ public class RegistrationBackEndApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RegistrationBackEndApplication.class, args);
 		System.out.println("Tes");
+		System.out.println("Belajar branch n merge");
 	}
 
 }
